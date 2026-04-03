@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}CKD Platform Information{% endblock %}
+
+{% block extra_css %}
+<style>
+    .info-container {
+        max-width: 1000px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .info-card.full-width {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .info-card h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #E2E8F0;
+    }
+
+    .info-card p, .info-card ul {
+        color: var(--text-muted);
+        line-height: 1.6;
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-card ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .info-card ul li {
+        margin-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .info-card ul li::before {
+        content: "✦";
+        color: #818CF8;
+        margin-right: 0.8rem;
+    }
+
+    .hero-btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(135deg, var(--primary), #818CF8);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.39);
+    }
+
+    .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+        background: linear-gradient(135deg, var(--primary-hover), #6366F1);
+    }
+
+    @media (max-width: 768px) {
+        .info-container {
+            grid-template-columns: 1fr;
+        }
+        .info-card.full-width {
+            grid-column: span 1;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="info-card full-width" style="margin-bottom: 2rem;">
+    <h2>Welcome to KidneyProtect</h2>
+    <p>We leverage advanced machine learning models to provide reliable predictive diagnostics for Chronic Kidney Disease (CKD). By analyzing physiological parameters, our platform helps in the early detection and management of kidney health.</p>
+</div>
+
+<div class="info-container">
+    <div class="info-card">
+        <h2>What is CKD?</h2>
+        <p>Chronic Kidney Disease (CKD) means your kidneys are damaged and can't filter blood the way they should. The disease is called "chronic" because the damage to your kidneys happens slowly over a long period of time.</p>
+        <p>Early detection is vital because kidney damage usually cannot be reversed. However, identifying it early allows for treatments that can slow the disease progression.</p>
+    </div>
+
+    <div class="info-card">
+        <h2>Common Risk Factors</h2>
+        <p>Our AI model analyzes these critical health factors:</p>
+        <ul>
+            <li>Diabetes Mellitus & High Blood Sugar</li>
+            <li>Hypertension (High Blood Pressure)</li>
+            <li>Hemoglobin & Red Blood Cell counts</li>
+            <li>Albumin levels and Pus cell evaluation</li>
+        </ul>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 1rem;">
+    <a href="{{ url_for('main.check') }}" class="hero-btn">Launch Diagnostics Form</a>
+</div>
+{% endblock %}
