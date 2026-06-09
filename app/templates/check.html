@@ -33,7 +33,7 @@
         border-radius: 24px;
         padding: 3rem;
         margin: 1rem 1rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        box-shadow: var(--shadow-main);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -56,7 +56,7 @@
     label {
         font-weight: 500;
         font-size: 0.95rem;
-        color: #E2E8F0;
+        color: var(--text-heading);
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -96,11 +96,18 @@
     input:focus, select:focus {
         border-color: #818CF8;
         box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.15);
-        background: rgba(15, 23, 42, 0.8);
+        background: var(--input-bg-focus);
     }
 
     input::placeholder {
         color: rgba(148, 163, 184, 0.5);
+    }
+
+    .helper-text {
+        font-size: 0.825rem;
+        color: rgba(148, 163, 184, 0.7);
+        margin-top: -0.15rem;
+        padding-left: 0.25rem;
     }
 
     .submit-btn {
@@ -195,11 +202,16 @@
         <div class="form-group">
             <label for="hemo">Hemoglobin (gms)</label>
             <input type="number" step="any" id="hemo" name="hemo" placeholder="Enter hemoglobin in gms" required>
+            <span class="helper-text">Normal range: 12 - 17 gms</span>
         </div>
 
         <div class="form-group">
-            <label for="rc">Red Blood Cell Count (Millions/cmm)</label>
-            <input type="number" step="any" id="rc" name="rc" placeholder="Enter RBC count" required>
+            <label for="rbc">Red Blood Cell</label>
+            <select id="rbc" name="rbc" required>
+                <option value="" disabled selected>Red blood cell evaluation</option>
+                <option value="0">Normal (0)</option>
+                <option value="1">Abnormal (1)</option>
+            </select>
         </div>
 
         <div class="form-group">

@@ -23,12 +23,12 @@ def predict():
         dm = float(request.form['dm'])
         al = float(request.form['al'])
         appet = float(request.form['appet'])
-        rc = float(request.form['rc'])
+        rbc = float(request.form['rbc'])
         pc = float(request.form['pc'])
 
-        # Order matches input features defined in previously existing app.py: 
-        # sg, htn, hemo, dm, al, appet, rc, pc
-        input_data = [sg, htn, hemo, dm, al, appet, rc, pc]
+        # Order matches input features: 
+        # sg, htn, hemo, dm, al, appet, rbc, pc
+        input_data = [sg, htn, hemo, dm, al, appet, rbc, pc]
         prediction = kidney_model.predict(input_data)
 
         return render_template('result.html', prediction=prediction)

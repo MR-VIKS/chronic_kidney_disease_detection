@@ -52,7 +52,7 @@ X = dataset.iloc[:, :-1]
 y = dataset.iloc[:, -1]
 
 # After feature importance:
-X = dataset[['sg', 'htn', 'hemo', 'dm', 'al', 'appet', 'rc', 'pc']]
+X = dataset[['sg', 'htn', 'hemo', 'dm', 'al', 'appet', 'rbc', 'pc']]
 
 # Train Test Split:
 from sklearn.model_selection import train_test_split

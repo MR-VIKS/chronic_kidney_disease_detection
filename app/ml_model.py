@@ -18,7 +18,7 @@ class KidneyModel:
 
     def predict(self, input_features):
         """
-        Inputs: [sg, htn, hemo, dm, al, appet, rc, pc]
+        Inputs: [sg, htn, hemo, dm, al, appet, rbc, pc]
         Returns: Prediction value (1 or 0)
         """
         if not self.model:
